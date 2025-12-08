@@ -1,119 +1,85 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HowItWorks.scss';
 
 const HowItWorks = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const navigate = useNavigate();
-
-  // Auto-play through steps
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 4);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isPaused]);
 
   const steps = [
     {
       id: 1,
-      phase: 'SETUP',
-      title: 'Configure Your Practice',
-      description: 'Set up your clinic in minutes. Connect agencies, customize workflows, and start documenting.',
-      icon: '⚙️',
-      color: '#3B82F6'
+      title: 'Set Up Your Clinic',
+      description: 'Configure your practice settings, workflows, and compliance requirements in minutes.',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      )
     },
     {
       id: 2,
-      phase: 'TEAM',
-      title: 'Add Your Team',
-      description: 'Invite PT, OT, ST therapists and assistants with role-based access control.',
-      icon: '👥',
-      color: '#10B981'
+      title: 'Invite Your Team',
+      description: 'Add therapists and staff with role-based permissions. PT, OT, ST, and assistants.',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+        </svg>
+      )
     },
     {
       id: 3,
-      phase: 'PATIENTS',
-      title: 'Manage Patients',
-      description: 'Create referrals, track certifications, and schedule visits - all HIPAA compliant.',
-      icon: '📋',
-      color: '#F59E0B'
+      title: 'Add Patients',
+      description: 'Import or create patient records. Manage referrals, certifications, and schedules.',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+          <path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/>
+        </svg>
+      )
     },
     {
       id: 4,
-      phase: 'DOCUMENT',
-      title: 'AI Documentation',
-      description: 'Generate clinical notes with AI. SOAP notes, evaluations, and OASIS in seconds.',
-      icon: '✨',
-      color: '#8B5CF6'
+      title: 'Document with AI',
+      description: 'Generate compliant clinical notes instantly. SOAP notes, evaluations, and progress reports.',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+        </svg>
+      )
     }
   ];
 
-  const handleStepClick = (index) => {
-    setActiveStep(index);
-    setIsPaused(true);
-    // Resume auto-play after 10 seconds
-    setTimeout(() => setIsPaused(false), 10000);
-  };
-
   return (
-    <section className="journey-section">
-      <div className="journey-container">
-        {/* Header */}
-        <div className="journey-header">
-          <span className="journey-badge">4 Simple Steps</span>
-          <h2 className="journey-title">
-            Start Documenting in <span className="highlight">Minutes</span>
-          </h2>
+    <section className="hiw-section">
+      <div className="hiw-container">
+        <div className="hiw-header">
+          <p className="hiw-label">How It Works</p>
+          <h2 className="hiw-title">Get Started in Four Simple Steps</h2>
+          <p className="hiw-subtitle">
+            From setup to documentation, we've streamlined every step of your workflow.
+          </p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="journey-steps">
+        <div className="hiw-grid">
           {steps.map((step, index) => (
-            <div
-              key={step.id}
-              className={`journey-step ${activeStep === index ? 'active' : ''} ${activeStep > index ? 'completed' : ''}`}
-              style={{ '--step-color': step.color }}
-              onClick={() => handleStepClick(index)}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              {/* Progress bar for active step */}
-              {activeStep === index && !isPaused && (
-                <div className="step-progress">
-                  <div className="step-progress-bar"></div>
-                </div>
-              )}
-
-              <div className="step-number">{step.id}</div>
-              <div className="step-icon">{step.icon}</div>
-              <div className="step-content">
-                <span className="step-phase">{step.phase}</span>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-description">{step.description}</p>
-              </div>
-
-              {/* Connector line */}
-              {index < steps.length - 1 && (
-                <div className={`step-connector ${activeStep > index ? 'active' : ''}`}></div>
-              )}
+            <div key={step.id} className="hiw-card">
+              <div className="hiw-card__number">{step.id}</div>
+              <div className="hiw-card__icon">{step.icon}</div>
+              <h3 className="hiw-card__title">{step.title}</h3>
+              <p className="hiw-card__desc">{step.description}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="journey-cta">
-          <button className="journey-cta-btn" onClick={() => navigate('/contact')}>
-            Start Free Trial
-            <svg viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
+        <div className="hiw-cta">
+          <button className="hiw-btn" onClick={() => navigate('/contact')}>
+            Schedule a Demo
           </button>
-          <span className="journey-cta-note">No credit card required</span>
+          <p className="hiw-note">Free 30-day trial. No credit card required.</p>
         </div>
       </div>
     </section>

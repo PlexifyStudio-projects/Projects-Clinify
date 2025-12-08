@@ -109,6 +109,10 @@ const Hero = () => {
               </span>
             </div>
 
+            <p className="hero__pricing-hint">
+              Pay only for patients you treat. No per-seat fees. No monthly minimums.
+            </p>
+
             <p className="hero__trusted">
               Built for Physical Therapists, Occupational Therapists & Speech Therapists
             </p>

@@ -253,9 +253,28 @@
   flex-shrink: 0;
 }
 
+// Pricing hint
+.hero__pricing-hint {
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.2px;
+  display: inline-block;
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+  }
+}
+
 // Trusted text
 .hero__trusted {
-  margin-top: 20px;
+  margin-top: 16px;
   font-size: 0.8rem;
   font-style: italic;
   color: rgba(255, 255, 255, 0.6);

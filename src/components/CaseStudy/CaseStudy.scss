@@ -1,0 +1,178 @@
+// Case Study Section
+.cstudy-section {
+  padding: 100px 0;
+  background: #F8FAFC;
+}
+
+.cstudy-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cstudy-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.cstudy-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0077B6;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.cstudy-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #1A202C;
+  letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.cstudy-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 48px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 768px) {
+    padding: 32px 24px;
+  }
+}
+
+.cstudy-content {
+  margin-bottom: 40px;
+}
+
+.cstudy-quote {
+  position: relative;
+}
+
+.cstudy-quote-icon {
+  width: 40px;
+  height: 40px;
+  color: #0077B6;
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+blockquote {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+  font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+.cstudy-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.cstudy-author-avatar {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #0077B6, #00A8E8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: #FFFFFF;
+  }
+}
+
+.cstudy-author-info {
+  flex: 1;
+}
+
+.cstudy-author-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1A202C;
+  margin: 0 0 4px 0;
+}
+
+.cstudy-author-role {
+  font-size: 0.875rem;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.cstudy-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid #E2E8F0;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cstudy-metric {
+  text-align: center;
+}
+
+.cstudy-metric-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0077B6;
+  margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.cstudy-metric-label {
+  font-size: 0.875rem;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+
+.cstudy-cta {
+  text-align: center;
+}
+
+.cstudy-cta-text {
+  font-size: 1.1rem;
+  color: #64748B;
+  margin: 0 0 20px 0;
+}
+
+.cstudy-btn {
+  padding: 14px 32px;
+  background: #0077B6;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #005a8c;
+    transform: translateY(-2px);
+  }
+}
