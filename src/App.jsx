@@ -13,7 +13,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Health">
       <ScrollToTop />
       <div className="app">
         <Header />
