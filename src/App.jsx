@@ -10,6 +10,7 @@ import Pricing from './components/Pricing/Pricing';
 import Legal from './components/Legal/Legal';
 import Veronica from './components/Veronica/Veronica';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import FloatingCTA from './components/FloatingCTA/FloatingCTA';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
 
         <Footer />
         <Veronica />
+        <FloatingCTA />
       </div>
     </Router>
   );
