@@ -1,288 +1,265 @@
-// Testimonials - Modern Bento Grid Design
-.testimonials-new {
-  position: relative;
+// Professional Testimonials Section
+.testimonials-pro {
   padding: 100px 0;
-  overflow: hidden;
-}
-
-// Background
-.testimonials-new__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.bg-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #FEFCE8 0%, #FEF9C3 30%, #FFFBEB 60%, #FFFFFF 100%);
-}
-
-.bg-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 40%);
-}
-
-.bg-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-
-  &--1 {
-    top: 10%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: rgba(251, 191, 36, 0.3);
-  }
-
-  &--2 {
-    bottom: 10%;
-    right: -10%;
-    width: 350px;
-    height: 350px;
-    background: rgba(59, 130, 246, 0.2);
-  }
-}
-
-// Container
-.testimonials-new__container {
+  background: #FAFBFC;
   position: relative;
-  z-index: 1;
+}
+
+.testimonials-pro__container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 // Header
-.testimonials-new__header {
+.testimonials-pro__header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-.header-eyebrow {
-  display: inline-block;
-  padding: 8px 20px;
-  background: rgba(245, 158, 11, 0.15);
-  color: #B45309;
-  font-size: 0.75rem;
-  font-weight: 700;
+.header-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0077B6;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  border-radius: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .header-title {
-  font-size: 2.75rem;
-  font-weight: 800;
-  color: #1E293B;
-  margin-bottom: 16px;
-  line-height: 1.2;
-
-  .highlight {
-    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #1A202C;
+  letter-spacing: -0.02em;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
 
-.header-subtitle {
-  font-size: 1.1rem;
-  color: #64748B;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-// Stats Bar
-.testimonials-new__stats {
+// Stats Row
+.testimonials-pro__stats {
   display: flex;
   justify-content: center;
   gap: 60px;
   margin-bottom: 60px;
-  padding: 30px 0;
-  border-top: 1px solid rgba(245, 158, 11, 0.2);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  padding-bottom: 40px;
+  border-bottom: 1px solid #E2E8F0;
 
   @media (max-width: 768px) {
-    flex-wrap: wrap;
     gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 480px) {
+    gap: 20px;
   }
 }
 
 .stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  text-align: center;
 }
 
 .stat-value {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 2rem;
+  display: block;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #1E293B;
+  color: #1A202C !important;
+  letter-spacing: -0.02em;
+  opacity: 1 !important;
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
   }
-}
-
-.stat-star {
-  width: 24px;
-  height: 24px;
-  color: #F59E0B;
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #64748B;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-// Testimonials Grid - Bento Style
-.testimonials-new__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+// Testimonials Carousel
+.testimonials-pro__carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
   margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.carousel-content {
+  flex: 1;
+  max-width: 650px;
+}
+
+.carousel-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: #64748B;
   }
 
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
+  &:hover {
+    border-color: #0077B6;
+    background: #0077B6;
+
+    svg {
+      color: #FFFFFF;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #E2E8F0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+
+  &:hover {
+    background: #CBD5E1;
+  }
+
+  &.active {
+    background: #0077B6;
+    width: 24px;
+    border-radius: 5px;
   }
 }
 
 // Testimonial Card
 .testimonial-card {
-  position: relative;
   background: #FFFFFF;
-  border-radius: 24px;
-  padding: 28px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  transition: all 0.3s ease;
 
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow:
-      0 25px 50px -12px rgba(0, 0, 0, 0.1),
-      0 0 0 1px rgba(245, 158, 11, 0.2);
+  &--carousel {
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
-    .testimonial-card__glow {
-      opacity: 1;
+    .card-quote-mark {
+      position: static;
+      display: block;
+      font-size: 5rem;
+      color: #0077B6;
+      opacity: 0.3;
+      margin-bottom: -20px;
     }
 
     .card-quote {
-      color: #1E293B;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 32px;
     }
-  }
 
-  &--large {
-    grid-column: span 1;
-
-    @media (min-width: 1024px) {
-      grid-column: span 1;
-      grid-row: span 2;
-      padding: 36px;
-
-      .card-quote {
-        font-size: 1.25rem;
-      }
+    .card-author {
+      justify-content: center;
+      border-top: none;
+      padding-top: 0;
     }
-  }
 
-  &--medium {
-    grid-column: span 1;
-  }
-
-  &--small {
-    grid-column: span 1;
+    .author-info {
+      text-align: left;
+    }
   }
 }
 
-.testimonial-card__content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.testimonial-card__glow {
+.card-quote-mark {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.5) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  top: 20px;
+  left: 28px;
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: #E2E8F0;
+  line-height: 1;
   pointer-events: none;
 }
 
-.card-rating {
-  display: flex;
-  gap: 2px;
-  margin-bottom: 16px;
-
-  .star {
-    width: 16px;
-    height: 16px;
-    color: #F59E0B;
-  }
-}
-
 .card-quote {
-  flex: 1;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #475569;
+  font-size: 0.95rem;
   line-height: 1.7;
-  margin-bottom: 24px;
-  transition: color 0.3s ease;
+  color: #374151;
+  margin: 0 0 24px 0;
+  position: relative;
+  z-index: 1;
+  font-style: normal;
 }
 
 .card-author {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: auto;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
 }
 
 .author-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0077B6 0%, #00A8E8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #FFFFFF;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
 }
 
 .author-info {
@@ -294,24 +271,30 @@
 .author-name {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #1E293B;
+  color: #1A202C;
 }
 
 .author-role {
   font-size: 0.8rem;
+  color: #0077B6;
+  font-weight: 500;
+}
+
+.author-clinic {
+  font-size: 0.75rem;
   color: #94A3B8;
 }
 
 // Trust Badges
-.testimonials-new__trust {
+.testimonials-pro__trust {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 40px;
+  flex-wrap: wrap;
   padding-top: 40px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid #E2E8F0;
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     gap: 24px;
   }
 }
@@ -321,17 +304,17 @@
   align-items: center;
   gap: 10px;
   color: #64748B;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 500;
 
   svg {
     width: 20px;
     height: 20px;
-    color: #10B981;
+    color: #0077B6;
   }
 
-  @media (max-width: 640px) {
-    font-size: 0.8rem;
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
 
     svg {
       width: 18px;

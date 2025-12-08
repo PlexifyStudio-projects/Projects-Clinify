@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../../styles/header/header.scss';
 import neuroFysLogo from '../../assets/LogoMHC.jpeg';
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +26,7 @@ const Header = () => {
     <header className={`nfy-header ${scrolled ? 'nfy-header--scrolled' : ''}`}>
       <div className="nfy-header__container">
         {/* Logo Section */}
-        <Link to="/" className="nfy-header__logo">
+        <Link to="/home" className="nfy-header__logo">
           <div className="nfy-header__logo-wrapper">
             <img src={neuroFysLogo} alt="NeuroFys Y" />
           </div>
@@ -35,10 +36,10 @@ const Header = () => {
         {/* Navigation */}
         <nav className={`nfy-header__nav ${menuOpen ? 'nfy-header__nav--active' : ''}`}>
           <div className="nfy-header__links">
-            <Link to="/" className="nfy-header__link" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link to="/features" className="nfy-header__link" onClick={() => setMenuOpen(false)}>Features</Link>
-            <Link to="/pricing" className="nfy-header__link" onClick={() => setMenuOpen(false)}>Pricing</Link>
-            <Link to="/contact" className="nfy-header__link" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link to="/home" className={`nfy-header__link ${location.pathname === '/home' || location.pathname === '/' ? 'nfy-header__link--active' : ''}`} onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link to="/features" className={`nfy-header__link ${location.pathname === '/features' ? 'nfy-header__link--active' : ''}`} onClick={() => setMenuOpen(false)}>Features</Link>
+            <Link to="/pricing" className={`nfy-header__link ${location.pathname === '/pricing' ? 'nfy-header__link--active' : ''}`} onClick={() => setMenuOpen(false)}>Pricing</Link>
+            <Link to="/contact" className={`nfy-header__link ${location.pathname === '/contact' ? 'nfy-header__link--active' : ''}`} onClick={() => setMenuOpen(false)}>Contact</Link>
           </div>
 
           <div className="nfy-header__actions">

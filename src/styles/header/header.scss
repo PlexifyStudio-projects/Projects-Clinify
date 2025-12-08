@@ -93,6 +93,12 @@
     color: #1a1a1a;
     background: #f5f5f5;
   }
+
+  &--active {
+    color: #0077B6;
+    font-weight: 600;
+    background: rgba(0, 119, 182, 0.08);
+  }
 }
 
 .nfy-header__actions {

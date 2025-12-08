@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './styles/App.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -13,15 +13,18 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import FloatingCTA from './components/FloatingCTA/FloatingCTA';
 
 function App() {
+  const basename = import.meta.env.PROD ? '/Health' : '';
+
   return (
-    <Router basename="/Health">
+    <Router basename={basename}>
       <ScrollToTop />
       <div className="app">
         <Header />
 
         <main className="app-main">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/features" element={<Features />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Hero.scss';
 import video1 from '../../assets/Terapeuta_Subiendo_Notas_en_Clinify_AI.mp4';
 import video2 from '../../assets/PTenlaentrada.mp4';
@@ -11,6 +12,18 @@ const Hero = () => {
   const videos = [video1, video2, video3, video4, video5];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoKey, setVideoKey] = useState(0);
+  const navigate = useNavigate();
+
+  const handleDemoClick = () => {
+    navigate('/contact');
+  };
+
+  const handleLearnMoreClick = () => {
+    const whyChooseSection = document.getElementById('why-choose');
+    if (whyChooseSection) {
+      whyChooseSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,10 +80,10 @@ const Hero = () => {
             </p>
 
             <div className="hero__actions">
-              <button className="hero__btn hero__btn--primary">
+              <button className="hero__btn hero__btn--primary" onClick={handleDemoClick}>
                 Request a Demo
               </button>
-              <button className="hero__btn hero__btn--secondary">
+              <button className="hero__btn hero__btn--secondary" onClick={handleLearnMoreClick}>
                 Learn More
               </button>
             </div>
