@@ -1,0 +1,233 @@
+.why-choose {
+  position: relative;
+  padding: 100px 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFBF5 0%, #FFF8F0 50%, #FFFFFF 100%);
+}
+
+.why-choose__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.why-choose__gradient {
+  display: none;
+}
+
+.why-choose__pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 1px 1px, rgba(245, 158, 11, 0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.why-choose__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-choose__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.why-choose__title {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    gap: 8px;
+  }
+
+  .title-why {
+    color: #4B5563;
+    font-weight: 400;
+  }
+
+  .title-brand {
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .brand-name {
+    color: #1F2937;
+    font-weight: 700;
+  }
+
+  .brand-y {
+    color: #F59E0B;
+    font-weight: 700;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -8px;
+      width: 8px;
+      height: 8px;
+      background: #3B82F6;
+      border-radius: 50%;
+      animation: why-pulse 2s ease-in-out infinite;
+    }
+  }
+
+  .title-question {
+    color: #9CA3AF;
+    font-weight: 300;
+  }
+}
+
+@keyframes why-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.why-choose__subtitle {
+  font-size: 1.125rem;
+  color: #6B7280;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.why-choose__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Why Cards - Unique class names
+.why-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px 24px;
+  border: 1px solid #E5E7EB;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+
+  &:hover,
+  &.active {
+    transform: translateY(-8px);
+    border-color: var(--card-color, #F59E0B);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+
+    .why-card__icon {
+      color: var(--card-color, #F59E0B);
+      transform: scale(1.1);
+    }
+
+    .why-card__title {
+      color: var(--card-color, #F59E0B);
+    }
+
+    .why-card__bar-fill {
+      width: 100%;
+    }
+  }
+}
+
+.why-card__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  color: #9CA3AF;
+  transition: all 0.3s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.why-card__content {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.why-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.why-card__subtitle {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.why-card__description {
+  font-size: 0.9rem;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+.why-card__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.why-card__stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--card-color, #F59E0B);
+}
+
+.why-card__stat-label {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.why-card__bar {
+  height: 3px;
+  background: #F3F4F6;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.why-card__bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--card-color, #F59E0B);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}

@@ -1,0 +1,524 @@
+// Veronica Virtual Assistant Styles
+// Using NeuroFysY Brand Colors (Blue palette)
+// ============================================
+
+$veronica-primary: #00B4D8;        // Bright blue
+$veronica-primary-dark: #0077B6;   // Medium blue
+$veronica-accent: #023E8A;         // Dark blue
+$veronica-light: #48CAE4;          // Light medical blue
+$veronica-bg: #FFFFFF;
+$veronica-text: #0F172A;
+$veronica-text-light: #64748B;
+$veronica-border: #E2E8F0;
+$veronica-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+.veronica-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  @media (max-width: 480px) {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+// ============================================
+// FLOATING TOGGLE BUTTON
+// ============================================
+.veronica-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $veronica-primary 0%, $veronica-primary-dark 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 15px rgba($veronica-primary, 0.4),
+    0 0 0 0 rgba($veronica-primary, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  animation: pulse-ring 2s ease-out infinite;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba($veronica-primary, 0.5);
+  }
+
+  &.active {
+    animation: none;
+    background: $veronica-accent;
+
+    &:hover {
+      background: darken($veronica-accent, 5%);
+    }
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
+
+  .chat-icon {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  @media (max-width: 480px) {
+    width: 54px;
+    height: 54px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.toggle-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  background: #EF4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  animation: badge-pop 0.3s ease-out;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow:
+      0 4px 15px rgba($veronica-primary, 0.4),
+      0 0 0 0 rgba($veronica-primary, 0.4);
+  }
+  70% {
+    box-shadow:
+      0 4px 15px rgba($veronica-primary, 0.4),
+      0 0 0 15px rgba($veronica-primary, 0);
+  }
+  100% {
+    box-shadow:
+      0 4px 15px rgba($veronica-primary, 0.4),
+      0 0 0 0 rgba($veronica-primary, 0);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes badge-pop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+// ============================================
+// HINT POPUP
+// ============================================
+.veronica-hint {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: $veronica-shadow;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: hint-slide-up 0.4s ease-out;
+  white-space: nowrap;
+
+  span {
+    font-size: 14px;
+    color: $veronica-text;
+    font-weight: 500;
+  }
+
+  .hint-close {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: #F1F5F9;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #E2E8F0;
+    }
+
+    svg {
+      width: 12px;
+      height: 12px;
+      color: $veronica-text-light;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 24px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    transform: rotate(45deg);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 480px) {
+    right: -8px;
+    padding: 10px 14px;
+
+    span {
+      font-size: 13px;
+    }
+  }
+}
+
+@keyframes hint-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// CHAT WINDOW
+// ============================================
+.veronica-chat {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 380px;
+  height: 520px;
+  background: $veronica-bg;
+  border-radius: 20px;
+  box-shadow: $veronica-shadow;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transform-origin: bottom right;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  @media (max-width: 480px) {
+    width: calc(100vw - 32px);
+    height: calc(100vh - 120px);
+    max-height: 500px;
+    bottom: 70px;
+    right: -8px;
+  }
+}
+
+// ============================================
+// CHAT HEADER
+// ============================================
+.veronica-header {
+  background: linear-gradient(135deg, $veronica-primary 0%, $veronica-primary-dark 100%);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.veronica-header__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.veronica-avatar {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+  }
+}
+
+.veronica-header__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.veronica-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.veronica-status {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.veronica-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reset-btn,
+.close-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    color: white;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// ============================================
+// MESSAGES AREA
+// ============================================
+.veronica-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #F8FAFC;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  animation: message-appear 0.3s ease-out;
+
+  &.user {
+    flex-direction: row-reverse;
+
+    .message-content {
+      background: linear-gradient(135deg, $veronica-primary 0%, $veronica-primary-dark 100%);
+      color: white;
+      border-radius: 18px 18px 4px 18px;
+    }
+  }
+
+  &.bot {
+    .message-content {
+      background: white;
+      color: $veronica-text;
+      border-radius: 18px 18px 18px 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, $veronica-primary 0%, $veronica-primary-dark 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  span {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+  }
+}
+
+.message-content {
+  max-width: 260px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  &.typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 20px;
+  }
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: $veronica-primary;
+  border-radius: 50%;
+  animation: typing-bounce 1.4s ease-in-out infinite;
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+@keyframes message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// OPTIONS AREA
+// ============================================
+.veronica-options {
+  padding: 16px 20px;
+  background: white;
+  border-top: 1px solid $veronica-border;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  animation: options-slide-up 0.3s ease-out;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 380px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.option-btn {
+  width: 100%;
+  padding: 10px 12px;
+  background: #F0F9FF;
+  border: 1px solid $veronica-light;
+  border-radius: 10px;
+  font-size: 13px;
+  color: $veronica-primary-dark;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+
+  &:hover {
+    background: linear-gradient(135deg, $veronica-primary 0%, $veronica-primary-dark 100%);
+    border-color: $veronica-primary;
+    color: white;
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@keyframes options-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

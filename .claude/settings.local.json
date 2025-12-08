@@ -6,7 +6,10 @@
       "Bash(mkdir:*)",
       "Bash(npm run dev:*)",
       "Bash(rm:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(npm run start:*)",
+      "WebFetch(domain:www.tebra.com)",
+      "WebFetch(domain:ensorahealth.com)"
     ],
     "deny": [],
     "ask": []

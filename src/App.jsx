@@ -1,31 +1,37 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.scss';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
 import Features from './components/Features/Features';
+import Contact from './components/Contact/Contact';
+import Pricing from './components/Pricing/Pricing';
+import Legal from './components/Legal/Legal';
+import Veronica from './components/Veronica/Veronica';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      
-      <main className="app-main">
-        <Hero />
-        <Features />
-        
-        <section className="next-section">
-          <div className="container">
-            <h2>Continue exploring below...</h2>
-          </div>
-        </section>
-      </main>
-      
-      <footer className="app-footer">
-        <div className="container">
-          <p>&copy; 2024 Clinify AI - Transforming Healthcare</p>
-        </div>
-      </footer>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="app">
+        <Header />
+
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/legal" element={<Legal />} />
+          </Routes>
+        </main>
+
+        <Footer />
+        <Veronica />
+      </div>
+    </Router>
   );
 }
 
