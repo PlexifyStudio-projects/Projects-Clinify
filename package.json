@@ -2,7 +2,7 @@
   "name": "health",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://LJ-Nava.github.io/Health",
+  "homepage": "https://plexifystudio-projects.github.io/Projects-Clinify",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
