@@ -13,7 +13,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import FloatingCTA from './components/FloatingCTA/FloatingCTA';
 
 function App() {
-  const basename = import.meta.env.PROD ? '/Health' : '';
+  const basename = import.meta.env.PROD ? '/Projects-Clinify' : '';
 
   return (
     <Router basename={basename}>
