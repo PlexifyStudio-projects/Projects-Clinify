@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run dev:*)",
+      "Bash(rm:*)",
+      "WebSearch",
+      "Bash(npm run start:*)",
+      "WebFetch(domain:www.tebra.com)",
+      "WebFetch(domain:ensorahealth.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
